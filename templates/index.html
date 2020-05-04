@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Укорачивание ссылок</title>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'click.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'but.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'inpu.css') }}">
+</head>
+<body>
+    <h1 id="text">{{ "Введите,пожалуйста,ссылку для укорачивания" }}</h1>
+    <form action="" method="post">
+            <div class="group"><input type="text" name="url" required><span class="bar"></span><label>URL</label></div>
+            <p><button class="submit" type="submit"><span>Сократить<span></button></p>
+    </form>
+    {% if message %}
+    <div class="group"><input type="text" value={{ message }} id="myInput" required><span class="bar"></span></div>
+        <div class="tooltip">
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+            <button class ="submit"onclick="copy()" onmouseout="outFunc()"><span>Скопировать в буфер обмена<span></button>
+        </div>
+    {% endif %}
+</body>
+</html>
